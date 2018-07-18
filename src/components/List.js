@@ -1,0 +1,26 @@
+import React from 'react';
+
+export default function List(props) {
+  return (
+    <ul>
+      {props.items.map(item => (
+        <li key={item.id}>
+          <span
+            style={{
+              textDecoration: item.complete ? 'line-through' : 'none'
+            }}
+            onClick={() => props.toggle && props.toggle(item.id)}
+          >
+            {item.name}
+          </span>{' '}
+          <button
+            onClick={() => props.remove(item)}
+            style={{ backgroundColor: 'red' }}
+          >
+            X
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+}
